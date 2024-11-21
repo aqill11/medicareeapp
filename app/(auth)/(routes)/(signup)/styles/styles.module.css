@@ -1,0 +1,29 @@
+/* styles.css */
+
+.filter-container {
+    display: flex; /* Mengatur agar input dan button berada dalam satu baris */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    margin-left: 550px; /* Atur jarak dari kanan */
+}
+
+.filter-input {
+    padding: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 4px 0 0 4px; /* Hanya radius pada sisi kiri */
+    outline: none;
+    color: #000000;
+}
+
+.filter-button {
+    padding: 8px;
+    background-color: #08b50e;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0 4px 4px 0; /* Hanya radius pada sisi kanan */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #000000;
+}
