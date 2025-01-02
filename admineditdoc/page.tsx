@@ -3,10 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; 
 import { Form, Input, Button, notification, Layout, Typography, Menu, Upload, message, Row, Col } from 'antd';
-import { UserOutlined, MedicineBoxOutlined, UserAddOutlined, AppstoreAddOutlined, UploadOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, MedicineBoxOutlined, UserAddOutlined, AppstoreAddOutlined, UploadOutlined, LogoutOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { RcFile } from 'antd/es/upload/interface';
-
-
 
 const { Header, Content, Footer, Sider } = Layout;
 const { Title } = Typography;
@@ -53,9 +51,9 @@ const AdminCreateDoctor = () => {
     router.push('/login'); 
   };
 
-  // Handle Next Button click to navigate to another page
-  const handleNext = () => {
-    router.push('/next-page'); // Adjust the path according to your needs
+  // Handle Back Button click to navigate to the previous page
+  const handleBack = () => {
+    router.back(); // Go back to the previous page in history
   };
 
   return (
@@ -99,7 +97,7 @@ const AdminCreateDoctor = () => {
         
         <Content style={{ padding: '50px 20px' }}>
           <div style={{ maxWidth: '600px', margin: '0 auto', background: '#ffffff', padding: '40px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-            <Title level={2} style={{ textAlign: 'center' }}>Membuat Akun Dokter</Title>
+            <Title level={2} style={{ textAlign: 'center' }}>Edit Akun Dokter</Title>
             <Form onFinish={onFinish} layout="vertical" initialValues={{ remember: true }}>
               <Form.Item label="Nama Dokter" name="Nama Dokter" rules={[{ required: true, message: 'Silahkan masukan nama dokter!' }]}>
                 <Input prefix={<UserOutlined />} placeholder="Silahkan masukan nama dokter!" />
@@ -140,18 +138,18 @@ const AdminCreateDoctor = () => {
 
               <Form.Item>
                 <Button type="primary" htmlType="submit" block loading={loading}>
-                  Buat Akun
+                  Simpan Perubahan
                 </Button>
               </Form.Item>
             </Form>
           </div>
         </Content>
 
-        {/* Next Button in Bottom Right */}
+        {/* Back Button in Bottom Right */}
         <Button 
           type="primary" 
-          icon={<AppstoreAddOutlined />} 
-          onClick={handleNext} 
+          icon={<ArrowLeftOutlined />} 
+          onClick={handleBack} 
           style={{
             position: 'fixed', 
             bottom: '30px', 
@@ -161,7 +159,7 @@ const AdminCreateDoctor = () => {
             fontSize: '20px',
           }}
         >
-          Next
+          Back
         </Button>
       </Layout>
     </Layout>

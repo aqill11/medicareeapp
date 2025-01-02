@@ -50,8 +50,8 @@ const AdminCreateDoctor = () => {
     });
   };
 
-  const handleNext = () => {
-    router.push('/next-page'); // Navigate to the next page
+  const handleBack = () => {
+    router.back(); // Navigate back to the previous page
   };
 
   return (
@@ -93,7 +93,7 @@ const AdminCreateDoctor = () => {
         <Layout>
           <Content style={{ padding: '50px 20px' }}>
             <div style={{ maxWidth: '600px', margin: '0 auto', background: '#ffffff', padding: '40px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-              <Title level={2} style={{ textAlign: 'center' }}>Membuat Spesialis</Title>
+              <Title level={2} style={{ textAlign: 'center' }}>Edit Spesialis</Title>
               <Form onFinish={onFinish} layout="vertical" initialValues={{ remember: true }}>
 
                 <Form.Item label="Nama Spesialis" name="Spesialis" rules={[{ required: true, message: 'Silakan masukkan spesialisasi dokter!' }]}>
@@ -121,7 +121,7 @@ const AdminCreateDoctor = () => {
 
                 <Form.Item>
                   <Button type="primary" htmlType="submit" block loading={loading}>
-                    Buat Spesialis Baru
+                    Simpan Perubahan
                   </Button>
                 </Form.Item>
               </Form>
@@ -130,11 +130,11 @@ const AdminCreateDoctor = () => {
         </Layout>
       </Layout>
 
-      {/* Next Button in Bottom Right */}
+      {/* Back Button in Bottom Right */}
       <Button 
         type="primary" 
         icon={<AppstoreAddOutlined />} 
-        onClick={handleNext} 
+        onClick={handleBack} 
         style={{
           position: 'fixed', 
           bottom: '30px', 
@@ -144,7 +144,7 @@ const AdminCreateDoctor = () => {
           fontSize: '20px',
         }}
       >
-        Next
+        Back
       </Button>
     </Layout>
   );
